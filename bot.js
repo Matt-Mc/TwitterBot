@@ -5,7 +5,7 @@ var module = require('./module');
 var T = new Twit(module);
 
 
-setInterval(getTweet, 1000*900)
+setInterval(getTweet, 1000*60*45)
 
 function getTweet(){
   T.get('search/tweets', { q: 'BlizzCon since:2011-09-01', count: 1 }, function(err, data, response) {
@@ -26,6 +26,7 @@ function tweetIt(txt){
   function tweeted(err, data, response){
     if (err){
       console.log("something went wrong!");
+      console.log(err)
     }else{
       console.log("It worked!");
     }
